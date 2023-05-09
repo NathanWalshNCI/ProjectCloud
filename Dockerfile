@@ -14,6 +14,5 @@ RUN bundle install
 RUN rake db:migrate
 ARG RAILS_MASTER_KEY
 ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
-SECRET_KEY_BASE_DUMMY=1
 RUN ./bin/rails assets:precompile
 CMD [ "rails", "server" ]
