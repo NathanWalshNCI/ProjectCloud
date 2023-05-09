@@ -12,5 +12,8 @@ ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
 RUN gem install bundler:2.4.12
 RUN bundle install
 RUN rake db:migrate
-RUN rails assets:precompile
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
+SECRET_KEY_BASE_DUMMY=1
+RUN ./bin/rails assets:precompile
 CMD [ "rails", "server" ]
