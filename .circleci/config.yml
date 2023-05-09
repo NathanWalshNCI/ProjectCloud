@@ -30,7 +30,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: docker-login
+          name: hello
           command: echo hello
       # - run:
       #     name: docker-login
@@ -45,10 +45,14 @@ jobs:
       #     name: run-docker-image
       #     command: docker run -p 3000:3000 -d $IMAGE_NAME
 
-  # deploy:
-  #   docker:
-  #     - image: cimg/ruby:3.1.0
-  #   steps:
-  #     - run:
-  #         name: deploy-application
-  #         command: ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "export CONTAINER_NAME=\"$CONTAINER_NAME\"; export IMAGE_NAME=\"$IMAGE_NAME\"; rm -rf ProjectCloud/; git clone https://github.com/NathanWalshNCI/ProjectCloud.git; source ProjectCloud/deploy.sh"  
+  deploy:
+    docker:
+      - image: cimg/ruby:3.1.0
+    # steps:
+    #   - run:
+    #       name: deploy-application
+    #       command: ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "export CONTAINER_NAME=\"$CONTAINER_NAME\"; export IMAGE_NAME=\"$IMAGE_NAME\"; rm -rf ProjectCloud/; git clone https://github.com/NathanWalshNCI/ProjectCloud.git; source ProjectCloud/deploy.sh"
+    steps:
+      - run:
+          name: world
+          command: echo world   
