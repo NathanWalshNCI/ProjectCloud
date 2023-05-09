@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Articles</h1>
+
+<div id="articles">
+  <%= button_to 'Show All', articles_path, :action => "index", :method => 'get', params: { filter: 'all' } %>
+  <%= button_to 'Show Published Only', articles_path, :action => "index", :method => 'get', params: { filter: 'published' } %>
+  <%= button_to 'Show Un-Published Only', articles_path, :action => "index", :method => 'get', params: { filter: 'unpublished' } %>
+  <% @articles.each do |article| %>
+    <%= render article %>
+    <p>
+      <%= link_to "View Article", article %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Create New Article", new_article_path %>
