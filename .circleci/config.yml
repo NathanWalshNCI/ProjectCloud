@@ -31,7 +31,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: docker-login
-          command: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          command: docker login -u nathanwalshnci -p USMunitionsConcern020423
       - run:
           name: build-docker-image
           command: docker build -t $IMAGE_NAME:latest . --build-arg SECRET_KEY_BASE=$SECRET_KEY_BASE
