@@ -13,6 +13,6 @@ RUN gem install bundler:2.4.12
 RUN bundle install
 RUN rake db:migrate
 ARG RAILS_MASTER_KEY
-ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY=609db5ca08715cb9d38d03596c75a0ad
 RUN ./bin/rails assets:precompile
 CMD [ "rails", "server" ]
